@@ -1,15 +1,18 @@
-import React from "react";
-
 import Navigation from "./Navigation";
 import classes from "./MainHeader.module.css";
+import PropTypes from "prop-types";
 
-const MainHeader = (props) => {
+const MainHeader = ({ onLogout }) => {
   return (
     <header className={classes["main-header"]}>
-      <h1>A Typical Page</h1>
-      <Navigation onLogout={props.onLogout} />
+      <h2>✨ Typical Page ✨</h2>
+      <Navigation onLogout={onLogout} />
     </header>
   );
+};
+
+MainHeader.propTypes = {
+  onLogout: PropTypes.func,
 };
 
 export default MainHeader;
