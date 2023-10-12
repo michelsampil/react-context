@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 import AuthContext from "../../stores/auth-context";
 import classes from "./Navigation.module.css";
+import PropTypes from "prop-types";
 
-const Navigation = (props) => {
+const Navigation = ({ onLogout }) => {
   const ctx = useContext(AuthContext);
 
   return (
@@ -21,12 +22,16 @@ const Navigation = (props) => {
         )}
         {ctx.isLoggedIn && (
           <li>
-            <button onClick={props.onLogout}>Logout</button>
+            <button onClick={onLogout}>Logout</button>
           </li>
         )}
       </ul>
     </nav>
   );
+};
+
+Navigation.propTypes = {
+  onLogout: PropTypes.func,
 };
 
 export default Navigation;
